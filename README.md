@@ -1,6 +1,5 @@
-# Shop
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
+# angular4-bootstrap4-firebase-ecommerce-application
+E-commerce web app based on angular 4, bootstrap 4 and firebase
 
 ## Development server
 
@@ -8,6 +7,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
+<<<<<<< HEAD
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
