@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {AngularFire, FirebaseListObservable} from "angularfire2";
+import { AngularFireDatabase } from 'angularfire2/database';
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/empty";
@@ -29,7 +29,7 @@ export class ProductService {
     // URL to Products web api
     private productsUrl = "products";
 
-    constructor(private af: AngularFire) {}
+    constructor(private db: AngularFireDatabase) {}
 
     getProducts(category?: string, search?: string): Observable<Product[]> {
         if (category || search) {
@@ -42,7 +42,7 @@ export class ProductService {
                 query.startAt = search.toUpperCase();
                 query.endAt = query.startAt + "\uf8ff";
             }
-            return this.af.database
+            return this.db
                 .list(this.productsUrl, {
                     query: query
                 })
@@ -53,7 +53,7 @@ export class ProductService {
     }
 
     getProduct(id: string): Observable<Product> {
-        return this.af.database
+        return this.db
             .object(this.productsUrl + `/${id}`)
             .catch(this.handleError);
     }

@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
-import {AngularFire, FirebaseListObservable} from "angularfire2";
-
+import { AngularFireDatabase } from 'angularfire2/database';
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/catch";
 
@@ -25,10 +24,10 @@ export class CategoryService {
     // We keep categories in cache variable
     private categories: Category[] = [];
 
-    constructor(private af: AngularFire) {}
+    constructor(private db: AngularFireDatabase) {}
 
     getCategories(): Observable<Category[]> {
-        return this.af.database
+        return this.db
             .list(this.categoriesUrl)
             .catch(this.handleError);
     }
