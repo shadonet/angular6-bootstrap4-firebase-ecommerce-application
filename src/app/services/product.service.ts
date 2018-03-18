@@ -13,7 +13,7 @@ export interface Product {
     title: string;
     // Price
     price: number;
-    // Mark product with specialproce
+    // Mark product with specialprice
     isSpecial: boolean;
     // Description
     desc: string;
