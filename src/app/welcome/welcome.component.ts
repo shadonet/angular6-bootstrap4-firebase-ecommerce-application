@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs/Observable";
+
+/*
+ * Components
+ */
+import {Category, CategoryService} from "../services/category.service";
+
 
 @Component({
   selector: 'app-welcome',
@@ -7,9 +14,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  // Slide Categories
+  slideCategories: Category[] = [];
 
-  ngOnInit() {
+  // Card categories
+  cardCategories: Observable<Category[]>;
+
+  constructor(private categoryService: CategoryService) {}
+
+  ngOnInit(): void {
+    this.cardCategories = this.categoryService.getCategories();
+    this.cardCategories.subscribe((categories: Category[]) => {
+      this.slideCategories = [
+        categories[0],
+        categories[1],
+        categories[2]
+      ];
+    });
   }
 
 }

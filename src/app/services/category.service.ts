@@ -26,10 +26,9 @@ export class CategoryService {
 
     constructor(private db: AngularFireDatabase) {}
 
-    getCategories(): Observable<Category[]> {
+    getCategories(): Observable<any[]> {
         return this.db
-            .list(this.categoriesUrl)
-            .catch(this.handleError);
+            .list(this.categoriesUrl).valueChanges();
     }
 
     getCategory(id: string): Category {

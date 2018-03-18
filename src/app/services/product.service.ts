@@ -31,31 +31,29 @@ export class ProductService {
 
     constructor(private db: AngularFireDatabase) {}
 
-    getProducts(category?: string, search?: string): Observable<Product[]> {
+    getProducts(category?: string, search?: string): Observable<any> {
         if (category || search) {
             let query = <any>{};
             if (category) {
-                query.orderByChild = "categoryId";
-                query.equalTo = category;
+              return this.db
+                  .list(this.productsUrl,
+                    ref => ref.orderByChild('categoryId').equalTo(category)).valueChanges();
+
             } else {
-                query.orderByChild = "title";
-                query.startAt = search.toUpperCase();
-                query.endAt = query.startAt + "\uf8ff";
+              return this.db
+                  .list(this.productsUrl,
+                    ref => ref.orderByChild('title')
+                    .startAt(search.toUpperCase())).valueChanges();
             }
-            return this.db
-                .list(this.productsUrl, {
-                    query: query
-                })
-                .catch(this.handleError);
+
         } else {
             return Observable.empty();
         }
     }
 
-    getProduct(id: string): Observable<Product> {
+    getProduct(id: string): Observable<any> {
         return this.db
-            .object(this.productsUrl + `/${id}`)
-            .catch(this.handleError);
+            .object(this.productsUrl + `/${id}`).valueChanges();
     }
 
     private handleError(error: any): Observable<any> {

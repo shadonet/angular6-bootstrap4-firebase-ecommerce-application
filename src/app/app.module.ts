@@ -13,9 +13,14 @@ import { WelcomeComponent } from './welcome/welcome.component';
  * Modules
  */
 import { ServicesModule } from './services/services.module';
+import { ShopModule } from './shop/shop.module';
 import { ComponentsModule } from "./components/components.module";
 
 import { environment } from './../environments/environment';
+/*
+ * Routing
+ */
+import { routing } from "./app.routes";
 
 @NgModule({
   declarations: [
@@ -27,8 +32,10 @@ import { environment } from './../environments/environment';
     AngularFireModule.initializeApp(environment.config),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    routing,
     //App Modules
     ComponentsModule,
+    ShopModule,
     ServicesModule
   ],
   providers: [],
