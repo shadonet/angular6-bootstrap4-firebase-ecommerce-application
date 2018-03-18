@@ -4,15 +4,15 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
+/*
+ * Components
+ */
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { ProductComponent } from './product/product.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { CategoryComponent } from './category/category.component';
-import { CartComponent } from './cart/cart.component';
+/**
+ * Modules
+ */
+import { ComponentsModule } from "./components/components.module";
 
 import { environment } from './../environments/environment';
 
@@ -20,18 +20,14 @@ import { environment } from './../environments/environment';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    NavbarComponent,
-    FooterComponent,
-    ProductComponent,
-    CheckoutComponent,
-    CategoryComponent,
-    CartComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.config),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
