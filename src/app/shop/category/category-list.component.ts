@@ -3,7 +3,7 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
-import {Observable} from "rxjs/Observable";
+import {Observable} from "rxjs";
 
 /*
  * Components
@@ -22,6 +22,7 @@ export class CategoryListComponent implements OnInit {
 
     ngOnInit(): void {
         this.categories = this.categoryService.getCategories();
+        console.log(this.categories);
     }
 
     filterProducts(category: Category) {

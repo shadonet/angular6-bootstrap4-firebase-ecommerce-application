@@ -1,8 +1,8 @@
+
+import {throwError as observableThrowError, empty as observableEmpty, Observable} from 'rxjs';
 import {Injectable} from "@angular/core";
 import { AngularFireDatabase } from 'angularfire2/database';
-import {Observable} from "rxjs/Observable";
-import "rxjs/add/operator/catch";
-import "rxjs/add/observable/empty";
+import { empty, of } from 'rxjs';
 
 export interface Product {
     // Unique Id
@@ -47,7 +47,7 @@ export class ProductService {
             }
 
         } else {
-            return Observable.empty();
+            return observableEmpty();
         }
     }
 
@@ -60,6 +60,6 @@ export class ProductService {
         let errMsg = (error.message) ? error.message : error.status ?
             `${error.status} - ${error.statusText}` : "Server error";
         window.alert(`An error occurred: ${errMsg}`);
-        return Observable.throw(errMsg);
+        return observableThrowError(errMsg);
     }
 }

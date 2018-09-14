@@ -4,7 +4,7 @@ import { ProductService } from './product.service';
 import { CategoryService } from './category.service';
 
 @NgModule({
-    imports: [     
+    imports: [
     ],
     providers: [
         ProductService,

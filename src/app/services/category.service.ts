@@ -1,7 +1,8 @@
+
+import {throwError as observableThrowError, Observable} from 'rxjs';
 import {Injectable} from "@angular/core";
 import { AngularFireDatabase } from 'angularfire2/database';
-import {Observable} from "rxjs/Observable";
-import "rxjs/add/operator/catch";
+import { catchError } from 'rxjs/operators';
 
 export class Category {
     //  Unique Id
@@ -44,6 +45,6 @@ export class CategoryService {
         let errMsg = (error.message) ? error.message : error.status ?
             `${error.status} - ${error.statusText}` : "Server error";
         window.alert(`An error occurred: ${errMsg}`);
-        return Observable.throw(errMsg);
+        return observableThrowError(errMsg);
     }
 }

@@ -10,7 +10,7 @@ import {Category} from "../../services/category.service";
 
 @Component({
     selector: "db-category-slide",
-    templateUrl: "./category-slide.component.html"  
+    templateUrl: "./category-slide.component.html"
 })
 export class CategorySlideComponent {
     @Input() category: Category;
