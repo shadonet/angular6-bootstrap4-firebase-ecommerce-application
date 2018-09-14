@@ -10,7 +10,7 @@ import {Category, CategoryService} from "../services/category.service";
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
 
@@ -24,12 +24,15 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.cardCategories = this.categoryService.getCategories();
+    //console.log(this.cardCategories);
     this.cardCategories.subscribe((categories: Category[]) => {
       this.slideCategories = [
         categories[0],
         categories[1],
         categories[2]
       ];
+    }, errors => {
+        console.log(errors);
     });
   }
 
