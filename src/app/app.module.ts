@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { CarouselModule } from 'ngx-bootstrap';
+
 /*
  * Components
  */
@@ -32,8 +35,10 @@ import { routing } from "./app.routes";
     AngularFireModule.initializeApp(environment.config),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    CommonModule,
     routing,
     //App Modules
+    CarouselModule.forRoot(),
     ComponentsModule,
     ShopModule,
     ServicesModule

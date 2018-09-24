@@ -12,7 +12,8 @@ import {CategorySlideComponent} from "./category/category-slide.component";
 @NgModule({
   imports: [
     BrowserModule, CommonModule,
-    FormsModule, ReactiveFormsModule, RouterModule
+    FormsModule, ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [
     CategoryListComponent,

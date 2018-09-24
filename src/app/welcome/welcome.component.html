@@ -2,43 +2,21 @@
   <div class="row">
     <div class="col-md-12">
       <!-- Carousel container -->
-      <div id="welcome-products" class="carousel slide" data-ride="carousel">
-
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#welcome-products"
-              *ngFor="let category of slideCategories;let first=first; let i=index"
-              attr.data-slide-to="{{i}}" [ngClass]="{active: first}"></li>
-        </ol>
-
-        <!-- Content -->
-        <div class="carousel-inner" role="listbox">
-            <div *ngFor="let category of slideCategories;let first=first"
+     <carousel>
+        <slide *ngFor="let category of slideCategories;let first=first"
                     class="carousel-item" [ngClass]="{active: first}">
-                <db-category-slide
-                [category]="category">
-                </db-category-slide>
-            </div>
-        </div>
-
-        <!-- Previous/Next controls -->
-        <a class="left carousel-control" href="#welcome-products" role="button" data-slide="prev">
-          <span class="icon-prev" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#welcome-products" role="button" data-slide="next">
-          <span class="icon-next" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-
-      </div>
+            <db-category-slide [category]="category"></db-category-slide>
+        </slide>
+     </carousel>
     </div>
   </div>
   <!-- /.row -->
   <div class="row">
-    <db-category-card *ngFor="let category of cardCategories | async"
-      [category]="category">
-    </db-category-card>
+<div class="col-xs-12 col-sm-6 col-md-4 mb-4" *ngFor="let category of cardCategories | async">
+      <db-category-card
+        [category]="category">
+      </db-category-card>
+    </div>
   </div>
   <!-- /.row -->
 </div>
