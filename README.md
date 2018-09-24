@@ -1,4 +1,4 @@
-# angular4-bootstrap4-firebase-ecommerce-application
+# angular6-bootstrap4-firebase-ecommerce-application
 E-commerce web app based on angular 6, bootstrap 4 and firebase
 
 ## Development server
