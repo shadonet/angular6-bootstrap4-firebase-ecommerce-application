@@ -9,23 +9,51 @@ import {CategoryTitlePipe} from "../pipes/category.pipe";
 import {CategoryCardComponent} from "./category/category-card.component";
 import {CategorySlideComponent} from "./category/category-slide.component";
 
+import { ProductListComponent } from "./product/product-list.component";
+import { ProductViewComponent } from "./product/product-view.component";
+import { ProductCardComponent } from "./product/product-card.component";
+import { ProductSearchComponent } from "./product/product-search.component";
+import { ProductGridComponent } from "./product/product-grid.component";
+
+import { CartItemCountComponent } from "./cart/cart-item-count.component";
+import { CartMenuComponent } from "./cart/cart-menu.component";
+import { CartViewComponent } from "./cart/cart-view.component";
+
+import { BsDropdownModule } from 'ngx-bootstrap';
+
 @NgModule({
   imports: [
     BrowserModule, CommonModule,
     FormsModule, ReactiveFormsModule,
-    RouterModule
+    RouterModule, BsDropdownModule
   ],
   declarations: [
     CategoryListComponent,
     CategoryTitlePipe,
     CategoryCardComponent,
-    CategorySlideComponent
+    CategorySlideComponent,
+    ProductListComponent,
+    ProductViewComponent,
+    ProductCardComponent,
+    ProductSearchComponent,
+    ProductGridComponent,
+    CartItemCountComponent,
+    CartMenuComponent,
+    CartViewComponent
   ],
   exports: [
     CategoryListComponent,
     CategoryTitlePipe,
     CategoryCardComponent,
-    CategorySlideComponent
+    CategorySlideComponent,
+    ProductListComponent,
+    ProductViewComponent,
+    ProductCardComponent,
+    ProductSearchComponent,
+    ProductGridComponent,
+    CartItemCountComponent,
+    CartMenuComponent,
+    CartViewComponent
   ]
 })
 export class ShopModule { }
