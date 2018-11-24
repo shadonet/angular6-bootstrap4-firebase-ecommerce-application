@@ -17,12 +17,12 @@
                     <p class="card-text">Availability: In Stock</p>
                 </div>
             </div>
-            <div class="card" *ngIf="!product?.isSpecial">
+            <div class="card mt-2" *ngIf="!product?.isSpecial">
                 <div class="card-body">
                     <h4 class="card-title">Price: {{product?.price | currency:'USD':true:'1.2-2'}}</h4>
                 </div>
             </div>
-            <div class="card card-inverse card-danger" *ngIf="product?.isSpecial">
+            <div class="card card-inverse card-danger mt-2" *ngIf="product?.isSpecial">
                 <div class="card-block">
                     <h4 class="card-title">Price: {{product?.price | currency:'USD':true:'1.2-2'}}</h4>
                 </div>
